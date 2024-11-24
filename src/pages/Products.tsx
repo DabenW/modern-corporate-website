@@ -4,29 +4,33 @@ import { motion } from 'framer-motion';
 const products = [
   {
     id: 1,
-    name: 'Enterprise Solution',
+    name: '企业解决方案',
     category: 'software',
-    description: 'Comprehensive business management platform',
+    description: '全面的企业管理平台',
     image: 'https://via.placeholder.com/400x300',
   },
   {
     id: 2,
-    name: 'Cloud Services',
+    name: '云服务',
     category: 'cloud',
-    description: 'Scalable cloud infrastructure solutions',
+    description: '可扩展的云基础设施解决方案',
     image: 'https://via.placeholder.com/400x300',
   },
   {
     id: 3,
-    name: 'Analytics Platform',
+    name: '数据分析平台',
     category: 'analytics',
-    description: 'Advanced data analytics and insights',
+    description: '高级数据分析与洞察',
     image: 'https://via.placeholder.com/400x300',
   },
-  // Add more products as needed
 ];
 
-const categories = ['all', 'software', 'cloud', 'analytics'];
+const categories = [
+  { id: 'all', name: '全部' },
+  { id: 'software', name: '软件' },
+  { id: 'cloud', name: '云服务' },
+  { id: 'analytics', name: '数据分析' }
+];
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -36,28 +40,28 @@ export default function Products() {
     : products.filter(product => product.category === selectedCategory);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-bold text-center mb-12">Our Products</h1>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12">我们的产品</h1>
 
-      {/* Category Filter */}
-      <div className="flex justify-center space-x-4 mb-12">
+      {/* 分类筛选 */}
+      <div className="flex flex-wrap justify-center gap-2 md:space-x-4 mb-8 md:mb-12">
         {categories.map(category => (
           <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 rounded-md capitalize transition-colors ${
-              selectedCategory === category
+            key={category.id}
+            onClick={() => setSelectedCategory(category.id)}
+            className={`px-3 md:px-4 py-1 md:py-2 rounded-md text-sm md:text-base transition-colors ${
+              selectedCategory === category.id
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
             }`}
           >
-            {category}
+            {category.name}
           </button>
         ))}
       </div>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* 产品网格 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {filteredProducts.map((product) => (
           <motion.div
             key={product.id}
@@ -72,11 +76,11 @@ export default function Products() {
               alt={product.name}
               className="w-full h-48 object-cover"
             />
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-              <p className="text-gray-600 mb-4">{product.description}</p>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
-                Learn More
+            <div className="p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold mb-2">{product.name}</h3>
+              <p className="text-gray-600 text-sm md:text-base mb-4">{product.description}</p>
+              <button className="w-full md:w-auto bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                了解更多
               </button>
             </div>
           </motion.div>

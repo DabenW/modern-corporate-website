@@ -6,53 +6,53 @@ import ProductCarousel from '../components/ProductCarousel';
 export default function Home() {
   return (
     <div className="space-y-20">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800">
+      {/* 主页横幅 */}
+      <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center text-white px-4"
+          className="text-center text-white px-4 max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Innovation Meets Excellence
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+            创新引领未来
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Transforming ideas into reality with cutting-edge solutions
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
+            用先进的解决方案，将创意转化为现实
           </p>
           <Link
             to="/products"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-gray-50 transition-colors"
           >
-            Explore Our Products
+            探索产品
             <ChevronRightIcon className="ml-2 h-5 w-5" />
           </Link>
         </motion.div>
       </section>
 
-      {/* Featured Products */}
+      {/* 特色产品 */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Products</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">特色产品</h2>
         <ProductCarousel />
       </section>
 
-      {/* Why Choose Us */}
+      {/* 为什么选择我们 */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">为什么选择我们</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Innovation',
-                description: 'Cutting-edge solutions that drive progress',
+                title: '创新',
+                description: '引领进步的前沿解决方案',
               },
               {
-                title: 'Quality',
-                description: 'Uncompromising commitment to excellence',
+                title: '品质',
+                description: '对卓越品质的不懈追求',
               },
               {
-                title: 'Support',
-                description: '24/7 dedicated customer support',
+                title: '支持',
+                description: '24小时专业客户服务',
               },
             ].map((item, index) => (
               <motion.div
@@ -70,15 +70,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* 联系我们 */}
       <section className="bg-blue-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Get Started?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">准备开始了吗？</h2>
           <Link
             to="/contact"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-gray-50 transition-colors"
           >
-            Contact Us Today
+            立即联系我们
             <ChevronRightIcon className="ml-2 h-5 w-5" />
           </Link>
         </div>
