@@ -7,31 +7,45 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite preview --host --port 3000",
+    "serve": "npm run build && npm run start",
+    "analyze": "vite build --mode analyze",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit",
+    "postinstall": "npm run type-check"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.17.0",
-    "@emailjs/browser": "^3.11.0"
+    "serve-static": "^1.15.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.6",
+    "@types/compression": "^1.7.5",
+    "@types/express": "^4.17.21",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
-    "@tailwindcss/forms": "^0.5.6",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
+    "rimraf": "^5.0.5",
+    "rollup-plugin-visualizer": "^5.9.2",
     "tailwindcss": "^3.3.3",
+    "terser": "^5.36.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
