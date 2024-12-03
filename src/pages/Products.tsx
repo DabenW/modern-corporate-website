@@ -1,29 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
-const products = [
-  {
-    id: 1,
-    name: '企业解决方案',
-    category: 'software',
-    description: '全面的企业管理平台',
-    image: 'https://via.placeholder.com/400x300',
-  },
-  {
-    id: 2,
-    name: '云服务',
-    category: 'cloud',
-    description: '可扩展的云基础设施解决方案',
-    image: 'https://via.placeholder.com/400x300',
-  },
-  {
-    id: 3,
-    name: '数据分析平台',
-    category: 'analytics',
-    description: '高级数据分析与洞察',
-    image: 'https://via.placeholder.com/400x300',
-  },
-];
+import { Link } from 'react-router-dom';
+import { products } from '../data/products';
+import { Product } from '../types/product';
 
 const categories = [
   { id: 'all', name: '全部' },
@@ -37,7 +16,7 @@ export default function Products() {
 
   const filteredProducts = selectedCategory === 'all'
     ? products
-    : products.filter(product => product.category === selectedCategory);
+    : products.filter((product: Product) => product.category === selectedCategory);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
@@ -80,7 +59,7 @@ export default function Products() {
               <h3 className="text-lg md:text-xl font-bold mb-2">{product.name}</h3>
               <p className="text-gray-600 text-sm md:text-base mb-4">{product.description}</p>
               <button className="w-full md:w-auto bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
-                了解更多
+                <Link to={`/products/${product.id}`}>了解更多</Link>
               </button>
             </div>
           </motion.div>
